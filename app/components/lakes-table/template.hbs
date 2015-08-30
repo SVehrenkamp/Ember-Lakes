@@ -1,0 +1,36 @@
+
+<div class="lakes-table">
+	<table class="table table-striped table-hover">
+		<thead>
+			<tr>
+				<th>Access Name</th>
+				<th>County</th>
+				<th>Size (Acres)</th>
+				<th>Watershed Name</th>
+				<th>Access Type</th>
+				<th>Ramp Type</th>
+				<th>Number of Ramps</th>
+				<th>Public Restrooms</th>
+				<th></th>
+				
+				
+				
+			</tr>
+		</thead>
+		<tbody>
+			{{#each lakes as |lake|}}
+			<tr>
+				<td>{{lake.launchName}}</td>
+				<td>{{lake.county}}</td>
+				<td>{{lake.acres}}</td>
+				<td>{{lake.lakeName}}</td>
+				<td>{{lake.launchType}}</td>
+				<td>{{lake.rampType}}</td>
+				<td>{{lake.numRamps}}</td>
+				<td>{{lake.numToilets}}</td>
+				<td><button {{action "viewLake" lake.id}} type="button" class="btn btn-success">See Lake Details</button></td>
+			</tr>
+			{{/each}}
+		</tbody>
+	</table>
+</div>
