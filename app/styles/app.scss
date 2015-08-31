@@ -1,4 +1,5 @@
 @import 'app/components/lakes-map/styles';
-#main{
-	width:100%;
+.lakes-table-wrap{
+	height:400px;
+	overflow-y:scroll;
 }

@@ -6,6 +6,10 @@ export default Ember.Component.extend({
 	actions: {
 		viewLake: function(lake){
 			this.sendAction('viewLake', lake);
+		},
+		setCenter: function(coords){
+			console.log(coords);
+			window.map.setCenter({lat: coords.lat, lng:coords.lng});
 		}
 	}
 });

@@ -15,26 +15,26 @@ export default Ember.Component.extend({
 	}.on('init'),
 	initMap: function(map){
 		var self=this;
+		var zoom = this.get('zoom') || 12;
 		setTimeout(function(){
 
 			var coords = self.get('coords') ? self.get('coords') : self.get('currentPosition');	
 			var el = document.getElementById('gmap-container');
 			var options = {
 							  center: {lat: coords.lat, lng: coords.lng},
-							  zoom: 12
+							  zoom: zoom
 							};
 			GoogleMapsLoader.key = 'AIzaSyCCPzv2FVkXMVLsppcE0GnTMACcx0bgUqA';
 			GoogleMapsLoader.load(function(google) {
-	    		var map = new google.maps.Map(el, options);
+	    		window.map = new google.maps.Map(el, options);
 	    		var icon = '/assets/images/map-marker.png';
 	    		var marker = new google.maps.Marker({
 				    position: {lat: coords.lat, lng: coords.lng},
-				    map: map,
-				    icon: icon,
-				    title: 'Hello World!'
+				    map: window.map,
+				    icon: icon
 				});
 
-				google.maps.event.addListenerOnce(map, 'tilesloaded', function(){
+				google.maps.event.addListenerOnce(window.map, 'tilesloaded', function(){
 					self.set('mapIsLoading', false);
 				});
 
@@ -44,13 +44,13 @@ export default Ember.Component.extend({
 					lakes.forEach(function(lake){
 						var marker = new google.maps.Marker({
 						    position: {lat: lake.geo.lat, lng: lake.geo.lng},
-						    map: map,
+						    map: window.map,
 						    title: lake.launchName
 						});
 					});
 				};
 			});
-		}, 2000);
+		}, 1000);
 	}.on('init')
 
 });

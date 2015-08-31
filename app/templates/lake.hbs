@@ -1,2 +1,4 @@
-<h1>Access Information for <small>{{attrs.launchName}}</small></h1>
-{{lakes-map coords=attrs.geo class="small"}}
+<div class="row col-lg-12">
+	{{lakes-map coords=attrs.geo class="large" mapIsLoading=true zoom=16}}
+	<h1> <small>Access Information for</small> <br>{{attrs.launchName}}</h1>
+</div>
