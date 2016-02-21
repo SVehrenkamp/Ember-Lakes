@@ -7,7 +7,14 @@ export default Ember.Component.extend({
 		'active:active'
 	],
 	active: true,
+	listLakes: "listLakes",
+	nearByLakes: "nearByLakes",
 	actions: {
-
+		listLakes: function(){
+			this.sendAction('listLakes');
+		},
+		nearByLakes: function(){
+			this.sendAction('nearByLakes');
+		}
 	}
 });

@@ -10,7 +10,7 @@ export default Ember.Component.extend({
 		setCenter: function(coords){
 			console.log(coords);
 			window.map.setCenter({lat: coords.lat, lng:coords.lng});
-			window.map.setZoom(12);
+			
 		}
 	}
 });

@@ -18,33 +18,31 @@
 			</tr>
 		</thead>
 		<tbody>
-			{{#each lakes as |lake|}}
-			{{#if plotmap}}
-			<tr {{action 'setCenter' lake.geo}}>
-				<td>{{lake.launchName}}</td>
-				<td>{{lake.county}}</td>
-				<td>{{lake.acres}}</td>
-				<td>{{lake.lakeName}}</td>
-				<td>{{lake.launchType}}</td>
-				<td>{{lake.rampType}}</td>
-				<td>{{lake.numRamps}}</td>
-				<td>{{lake.numToilets}}</td>
-				<td><button {{action "viewLake" lake.id}} type="button" class="btn btn-success">See Lake Details</button></td>
-			</tr>
-			{{else}}
-			<tr>				
-				<td>{{lake.launchName}}</td>
-				<td>{{lake.county}}</td>
-				<td>{{lake.acres}}</td>
-				<td>{{lake.lakeName}}</td>
-				<td>{{lake.launchType}}</td>
-				<td>{{lake.rampType}}</td>
-				<td>{{lake.numRamps}}</td>
-				<td>{{lake.numToilets}}</td>
-				<td><button {{action "viewLake" lake.id}} type="button" class="btn btn-success">See Lake Details</button></td>
-			</tr>
+			{{#if lake}}
+				<tr {{action 'setCenter' lake.geo}}>
+					<td>{{lake.launchName}}</td>
+					<td>{{lake.county}}</td>
+					<td>{{lake.acres}}</td>
+					<td>{{lake.lakeName}}</td>
+					<td>{{lake.launchType}}</td>
+					<td>{{lake.rampType}}</td>
+					<td>{{lake.numRamps}}</td>
+					<td>{{lake.numToilets}}</td>
+					<td><button {{action "favorite" lake}} type="button" class="btn btn-success">Favorite + </button></td>
+				</tr>
 			{{/if}}
-
+			{{#each lakes as |lake|}}
+				<tr {{action 'setCenter' lake.geo}}>
+					<td>{{lake.launchName}}</td>
+					<td>{{lake.county}}</td>
+					<td>{{lake.acres}}</td>
+					<td>{{lake.lakeName}}</td>
+					<td>{{lake.launchType}}</td>
+					<td>{{lake.rampType}}</td>
+					<td>{{lake.numRamps}}</td>
+					<td>{{lake.numToilets}}</td>
+					<td><button {{action "viewLake" lake}} type="button" class="btn btn-success">See Lake Details</button></td>
+				</tr>
 			{{/each}}
 		</tbody>
 	</table>
